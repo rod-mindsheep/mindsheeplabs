@@ -17,6 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import type { ComponentProps } from 'react';
 
@@ -113,6 +114,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
   ) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
     const containerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -167,14 +169,14 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
         )}
         {...props}
       >
-        <div className="mx-auto md:px-20 flex h-16 w-full justify-between gap-4">
+        <div className="flex justify-between w-full h-16 gap-4 mx-auto md:px-20">
           {/* Left side */}
           <div className="flex items-center gap-2">
             {/* Main nav */}
             <div className="flex items-center gap-6">
               <button
                 onClick={(e) => e.preventDefault()}
-                className="flex items-center space-x-2 text-primary hover:text-primary/90 transition-colors cursor-pointer"
+                className="flex items-center space-x-2 transition-colors cursor-pointer text-primary hover:text-primary/90"
               >
                 <div className="text-2xl">
                   {logo}
@@ -186,10 +188,10 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
             </div>
           </div>
           {/* Right side */}
-          <div className="flex items-center md:gap-10 gap-5">
-            <Button
-              variant="ghost"
-              size="sm"
+          <div className="flex items-center gap-5 md:gap-10">
+            <a
+              // variant="ghost"
+              // size="sm"
               className="text-sm hidden md:flex font-medium font-roboto text-[25px]"
               onClick={(e) => {
                 e.preventDefault();
@@ -197,9 +199,9 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
               }}
             >
               {aboutText}
-            </Button>
-            <Button
-              size="sm"
+            </a>
+            {/* <a
+              // size="sm"
               className="flex items-center justify-items-center md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-4 shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px]"
               onClick={(e) => {
                 e.preventDefault();
@@ -207,7 +209,87 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
               }}
             >
               {ctaText}
-            </Button>
+            </a> */}
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <a
+                  className="flex cursor-pointer items-center justify-center md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-4 shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px]"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsDialogOpen(true);
+                  }}
+                >
+                  {ctaText}
+                </a>
+              </DialogTrigger>
+
+              <DialogContent className="max-w-lg p-6 mx-auto bg-white rounded-xl">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold text-black">
+                    Join Mindsheep Labs
+                  </DialogTitle>
+                  <DialogDescription className="text-gray-700">
+                    We collaborate with agencies ready to rewire how they create, automate,
+                    and scale using AI. Tell us a bit about your goals so we can explore the
+                    right fit.
+                  </DialogDescription>
+                </DialogHeader>
+
+                <form className="flex flex-col gap-4 mt-4">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    required
+                  />
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Your Agency / Company Name"
+                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                  />
+
+                  <select
+                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    required
+                  >
+                    <option value="">What do you want to explore?</option>
+                    <option>Creative Automation (AI imagery, videos, influencers)</option>
+                    <option>Operational AI (proposal writing, workflows, reports)</option>
+                    <option>Data & Stack Integration (Google Ads, CRM, Meta)</option>
+                    <option>AI-Powered Service Expansion</option>
+                    <option>Other / Not Sure Yet</option>
+                  </select>
+
+                  <textarea
+                    placeholder="Tell us what challenges or goals you’re exploring with AI..."
+                    className="p-3 text-black border border-gray-300 rounded-md h-28 resize-none focus:ring-2 focus:ring-[#D700F3] outline-none"
+                  ></textarea>
+
+                  <DialogFooter className="flex justify-end gap-3 mt-2">
+                    <DialogClose asChild>
+                      <Button
+                        variant="outline"
+                        className="px-5 py-2 text-black border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100"
+                      >
+                        Cancel
+                      </Button>
+                    </DialogClose>
+                    <Button
+                      type="submit"
+                      className="w-auto px-6 py-2 text-white bg-gradient-to-r from-[#1A00D7] to-[#D700F3] rounded-md font-semibold cursor-pointer"
+                    >
+                      Submit
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
             {/* Mobile menu trigger */}
             {isMobile && (
               <Popover open={menuOpen} onOpenChange={setMenuOpen}>
@@ -265,7 +347,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                       </svg>
                     </Button>
                   </div>
-                  <NavigationMenu className="mt-0 w-full">
+                  <NavigationMenu className="w-full mt-0">
                     <NavigationMenuList className="flex-col items-start gap-0 text-left">
                       {navigationLinks.map((link, index) => (
                         <NavigationMenuItem key={index} className="w-full">
@@ -279,7 +361,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                                   <li key={itemIndex}>
                                     <button
                                       onClick={(e) => e.preventDefault()}
-                                      className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer no-underline"
+                                      className="flex items-center w-full px-3 py-2 text-sm font-medium no-underline transition-colors rounded-md cursor-pointer hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                     >
                                       {item.label}
                                     </button>
@@ -290,7 +372,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                           ) : (
                             <button
                               onClick={(e) => e.preventDefault()}
-                              className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer no-underline"
+                              className="flex items-center w-full px-3 py-2 text-sm font-medium no-underline transition-colors rounded-md cursor-pointer hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               {link.label}
                             </button>
@@ -305,7 +387,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                               <div
                                 role="separator"
                                 aria-orientation="horizontal"
-                                className="bg-border -mx-1 my-1 h-px w-full"
+                                className="w-full h-px my-1 -mx-1 bg-border"
                               />
                             )}
                         </NavigationMenuItem>
@@ -339,11 +421,11 @@ const ListItem = React.forwardRef<
     if (!iconName) return null;
     switch (iconName) {
       case 'BookOpenIcon':
-        return <BookOpenIcon className="h-5 w-5" />;
+        return <BookOpenIcon className="w-5 h-5" />;
       case 'LifeBuoyIcon':
-        return <LifeBuoyIcon className="h-5 w-5" />;
+        return <LifeBuoyIcon className="w-5 h-5" />;
       case 'InfoIcon':
-        return <InfoIcon className="h-5 w-5" />;
+        return <InfoIcon className="w-5 h-5" />;
       default:
         return null;
     }
@@ -361,13 +443,13 @@ const ListItem = React.forwardRef<
       >
         {type === 'icon' && icon ? (
           <div className="flex items-start space-x-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-muted">
               {renderIconComponent(icon)}
             </div>
             <div className="space-y-1">
               <div className="text-base font-medium leading-tight">{title}</div>
               {children && (
-                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
                   {children}
                 </p>
               )}
@@ -377,7 +459,7 @@ const ListItem = React.forwardRef<
           <>
             <div className="text-base font-medium leading-none">{title}</div>
             {children && (
-              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
                 {children}
               </p>
             )}

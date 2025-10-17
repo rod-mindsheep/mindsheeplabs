@@ -2,17 +2,17 @@ import React from "react";
 
 const FounderSection = () => {
   return (
-    <section className="bg-black text-white py-24 px-6 relative overflow-hidden min-w-screen">
+    <section className="relative px-6 py-24 overflow-hidden text-white bg-black min-w-screen">
       {/* Gradient glow background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-blue-900/40 via-black to-transparent"></div>
 
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-12 relative z-10">
+      <div className="relative z-10 flex flex-col items-stretch max-w-6xl gap-12 mx-auto md:flex-row">
         {/* Image Section */}
-        <div className="relative w-full md:w-1/2 flex">
+        <div className="relative flex w-full md:w-1/2">
           <img
             src={"/founder.jpg"}
             alt="Founder"
-            className="rounded-xl object-cover w-full h-full shadow-lg"
+            className="object-cover w-full h-full shadow-lg rounded-xl"
           />
           <div className="absolute bottom-3 left-3 bg-purple-700 text-white text-[20px] font-black px-3 py-1 rounded-sm">
             DAVID TAYLOR
@@ -20,12 +20,12 @@ const FounderSection = () => {
         </div>
 
         {/* Text Section */}
-        <div className="md:w-1/2 flex flex-col justify-center">
-          <h2 className="text-[50px] md:text-3xl font-extrabold mb-6">
+        <div className="flex flex-col justify-center md:w-1/2">
+          <h2 className="text-[25px] md:text-[50px] font-extrabold mb-6">
             MEET THE FOUNDER
           </h2>
 
-          <p className="text-white font-normal mb-4 text-[20px] leading-relaxed">
+          <p className="text-white font-normal mb-4 text-[13px] md:text-[20px] leading-relaxed">
             David Taylor has led at the intersection of marketing, technology, and operations
             for nearly two decades. He managed enterprise-scale systems at TPG—Australia’s
             second-largest ISP—before founding his own digital marketing agency in 2016.

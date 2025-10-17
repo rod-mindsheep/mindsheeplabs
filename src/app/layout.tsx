@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -33,7 +33,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`font-roboto antialiased bg-gradient-to-br from-[#011b51] to-[#0056f3] text-white`}
+        className={`font-roboto antialiased bg-gradient-to-br from-[#07032d] to-[#0056f3] text-white`}
       >
         {children}
       </body>
