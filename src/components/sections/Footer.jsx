@@ -1,16 +1,17 @@
 'use client';
 import React from "react";
+import { MagneticButton } from '@/components/ui/magnetic-button';
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-black via-[#080818] to-[#0a0030] text-white py-20 px-6 min-w-screen">
       {/* Main container */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 border-b border-gray-700/50 pb-12">
+      <div className="flex flex-col items-center justify-between gap-12 pb-12 mx-auto border-b max-w-7xl md:flex-row border-gray-700/50">
         
         {/* Left side: Contact prompt */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center w-full md:w-1/2">
-          <h3 className="text-[40px] font-semibold mb-4 text-white max-w-72">Do you have any questions?</h3>
-          <p className="text-white mb-6">Feel free to send us your questions.</p>
+        <div className="flex flex-col items-center justify-center w-full text-center md:items-start md:text-left md:w-1/2">
+          <h3 className="text-[20px] md:text-[40px] font-semibold mb-4 text-white max-w-72">Do you have any questions?</h3>
+          <p className="mb-6 text-white text-[13px] md:text-[20px]">Feel free to send us your questions.</p>
 
           <form
             onSubmit={(e) => e.preventDefault()}
@@ -19,27 +20,27 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter Your Email"
-              className="flex-grow bg-transparent border border-gray-600 rounded-md px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="text-[13px] md:text-[20px] h-[46px] md:[43px] flex-grow px-4 py-3 text-gray-200 placeholder-gray-500 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
-            <button
+            <MagneticButton
               type="submit"
-              className="bg-gradient-to-r from-[#1A00D7] to-[#D700F3] transition-all text-white font-semibold px-5 py-3 rounded-sm whitespace-nowrap"
+              className="flex items-center justify-items-center h-[46px] md:[43px] text-[20px] bg-gradient-to-r from-[#1A00D7] to-[#D700F3] transition-all text-white font-semibold px-5 py-3 rounded-sm whitespace-nowrap"
             >
               TALK WITH US
-            </button>
+            </MagneticButton>
           </form>
         </div>
 
         {/* Right side: Logo */}
-        <div className="flex flex-col items-center md:items-end justify-center text-center md:text-right w-full md:w-1/2">
-          <div className="flex items-center justify-center md:justify-end gap-3 mb-2">
+        <div className="flex flex-col items-center justify-center w-full text-center md:items-end md:text-right md:w-1/2">
+          <div className="flex items-center justify-center gap-6 mb-2 md:justify-end">
             <img
               src="/logo.png"
               alt="Mindsheep Labs Logo"
-              className="w-10 h-10 object-contain"
+              className="object-contain w-[35px] h-[35px] md:w-[60px] md:h-[60px]"
             />
-            <span className="text-white font-extrabold text-2xl tracking-wide">
+            <span className="text-white font-extrabold text-[30px] md:text-[50px] tracking-wide">
               MINDSHEEPLABS
             </span>
           </div>
@@ -47,7 +48,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom copyright */}
-      <div className="max-w-6xl mx-auto text-gray-500 text-sm pt-6 text-center md:text-right">
+      <div className="max-w-6xl mx-auto text-gray-500 text-[13px] md:text-[12px] pt-6 text-center md:text-right">
         © 2025 — Copyright
       </div>
     </footer>

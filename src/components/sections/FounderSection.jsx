@@ -1,4 +1,5 @@
 import React from "react";
+import { MagneticButton } from '@/components/ui/magnetic-button';
 
 const FounderSection = () => {
   return (
@@ -40,9 +41,9 @@ const FounderSection = () => {
             guide for agencies ready to evolve.
           </p>
 
-          <button className="w-[212px] uppercase bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 transition-all duration-300 px-6 py-3 rounded-sm font-semibold text-white">
+          <MagneticButton className="w-[212px] uppercase bg-gradient-to-r from-[#1207D9] to-[#237FFE] cursor-pointer transition-all duration-300 px-6 py-3 rounded-sm font-semibold text-white">
             Join the Lab
-          </button>
+          </MagneticButton>
         </div>
       </div>
     </section>

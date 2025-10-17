@@ -20,6 +20,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import type { ComponentProps } from 'react';
+import { MagneticButton } from '@/components/ui/magnetic-button';
 
 // Simple logo component for the navbar
 const Logo = ({ className, style, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
@@ -212,15 +213,16 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
             </a> */}
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
-                <a
-                  className="flex cursor-pointer items-center justify-center md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-4 shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px]"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsDialogOpen(true);
-                  }}
-                >
-                  {ctaText}
-                </a>
+                  <MagneticButton
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsDialogOpen(true);
+                    }}
+                    className="flex cursor-pointer items-center justify-center md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-4 shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px]"
+                    // className="md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-6 bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px] text-white shadow-sm"
+                  >
+                    <span className="inline-block px-1">{ctaText}</span>
+                  </MagneticButton>
               </DialogTrigger>
 
               <DialogContent className="max-w-lg p-6 mx-auto bg-white rounded-xl">
