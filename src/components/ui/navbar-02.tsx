@@ -28,7 +28,6 @@ const Logo = ({ className, style, ...props }: React.ImgHTMLAttributes<HTMLImageE
     src="/logo.png"
     alt="Logo"
     className={cn('inline-block', className)}
-    style={{ width: '55px', height: '55px', ...style }}
     {...props}
   />
 );
@@ -165,31 +164,31 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       <header
         ref={combinedRef}
         className={cn(
-          'pt-10 md:pt-10 sticky top-0 z-50 w-full md:px-10 px-6 [&_*]:no-underline',
+          'pt-4 md:pt-10 sticky top-0 z-50 w-full md:px-10 px-6 [&_*]:no-underline',
           className
         )}
         {...props}
       >
-        <div className="flex justify-between w-full h-16 gap-4 mx-auto md:px-20">
+        <div className="flex justify-between items-center w-full gap-4 mx-auto md:px-20 py-2 md:py-4 min-h-[64px]">
           {/* Left side */}
           <div className="flex items-center gap-2">
             {/* Main nav */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={(e) => e.preventDefault()}
-                className="flex items-center space-x-2 transition-colors cursor-pointer text-primary hover:text-primary/90"
+                className="flex items-center gap-1 space-x-2 transition-colors cursor-pointer md:gap-4 text-primary hover:text-primary/90"
               >
                 <div className="text-2xl">
-                  {logo}
+                  <Logo className="w-[35px] h-[35px] md:w-[55px] md:h-[55px]" />
                 </div>
-                <span className="text-[20px] md:text-[33px] sm:inline-block uppercase text-white font-bold">
+                <span className="text-[20px] md:text-[30px] uppercase text-white font-bold leading-none">
                   MindsheepLabs
                 </span>
               </button>
             </div>
           </div>
           {/* Right side */}
-          <div className="flex items-center gap-5 md:gap-10">
+          <div className="flex items-center justify-end gap-2 md:gap-6">
             <a
               // variant="ghost"
               // size="sm"
@@ -218,14 +217,18 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                       e.preventDefault();
                       setIsDialogOpen(true);
                     }}
-                    className="flex cursor-pointer items-center justify-center md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-4 shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px]"
-                    // className="md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-6 bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px] text-white shadow-sm"
+                    className="flex cursor-pointer items-center justify-center 
+                      md:rounded-[15px] rounded-[5px] font-roboto 
+                      md:text-[25px] text-[13px] font-normal px-4 
+                      shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] 
+                      md:h-[60px] md:w-[190px] w-[100px] h-[33px] 
+                      shrink-0 whitespace-nowrap"
                   >
                     <span className="inline-block px-1">{ctaText}</span>
                   </MagneticButton>
               </DialogTrigger>
 
-              <DialogContent className="max-w-lg p-6 mx-auto bg-white rounded-xl">
+              <DialogContent className="p-6 mx-auto bg-white md:max-w-lg max-w-70vw rounded-xl">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-bold text-black">
                     Join Mindsheep Labs
@@ -284,7 +287,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                     </DialogClose>
                     <Button
                       type="submit"
-                      className="w-auto px-6 py-2 text-white bg-gradient-to-r from-[#1A00D7] to-[#D700F3] rounded-md font-semibold cursor-pointer"
+                      className="w-full px-6 py-2 text-white bg-gradient-to-r from-[#1A00D7] to-[#D700F3] rounded-md font-semibold cursor-pointer"
                     >
                       Submit
                     </Button>
@@ -297,7 +300,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
               <Popover open={menuOpen} onOpenChange={setMenuOpen}>
                 <PopoverTrigger asChild>
                   <Button
-                    className="group h-[63px] w-[33px] hover:bg-accent hover:text-accent-foreground z-[60]"
+                    className="group h-[40px] w-[33px] md:hidden hover:bg-accent hover:text-accent-foreground z-[60] flex items-center justify-center"
                     variant="ghost"
                     size="icon"
                     onClick={() => setMenuOpen(!menuOpen)}

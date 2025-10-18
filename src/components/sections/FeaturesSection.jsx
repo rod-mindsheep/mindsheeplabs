@@ -52,7 +52,7 @@ const FeaturesSection = () => {
                   <img
                     src={feature.icon}
                     alt={feature.title + " icon"}
-                    className="object-contain w-full h-full"
+                    className="object-cover w-[90%] h-[90%]"
                   />
                 </div>
               </div>
