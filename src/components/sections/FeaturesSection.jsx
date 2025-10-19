@@ -34,33 +34,29 @@ const FeaturesSection = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="relative bg-gradient-to-b from-[#181022] to-[#0b0515] p-8 rounded-2xl border border-[#3b0c6e]/40 hover:border-purple-500/60 transition-all duration-300 shadow-md"
+            className="p-1 transition-all duration-300 feature-card rounded-2xl"
           >
-            {/* Glow overlay */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-purple-700/10 to-transparent rounded-2xl"></div>
+            <div className="p-6">
+              {/* Title */}
+              <h3 className="relative normal-case z-10 mb-4 text-[20px] font-bold leading-snug md:text-[40px]">
+                {feature.title}
+              </h3>
 
-            {/* Title */}
-            <h3 className="relative z-10 mb-4 text-[20px] font-bold leading-snug md:text-[40px]">
-              {feature.title}
-            </h3>
-
-            {/* Icon + Description */}
-            <div className="relative z-10 flex items-center gap-6">
-              {/* Icon (40%) */}
-              <div className="flex items-center justify-center basis-[40%]">
-                <div className="flex items-center justify-center bg-[#A855F7] rounded-full w-[65px] h-[65px] md:w-[90px] md:h-[90px] overflow-hidden">
-                  <img
-                    src={feature.icon}
-                    alt={feature.title + " icon"}
-                    className="object-cover w-[90%] h-[90%]"
-                  />
+              {/* Icon + Description */}
+              <div className="relative z-10 flex items-center gap-6">
+                <div className="flex items-center justify-center basis-[20%]">
+                  <div className="flex items-center justify-center bg-[#A855F7] rounded-full w-[65px] h-[65px] md:w-[90px] md:h-[90px] overflow-hidden">
+                    <img
+                      src={feature.icon}
+                      alt={feature.title + ' icon'}
+                      className="object-cover w-[90%] h-[90%]"
+                    />
+                  </div>
                 </div>
+                <p className="basis-[80%] text-[13px] md:text-[20px] leading-relaxed text-gray-400">
+                  {feature.description}
+                </p>
               </div>
-
-              {/* Description (60%) */}
-              <p className="basis-[60%] text-[13px] md:text-[20px] leading-relaxed text-gray-400">
-                {feature.description}
-              </p>
             </div>
           </div>
         ))}

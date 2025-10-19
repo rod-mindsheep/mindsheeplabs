@@ -3,19 +3,21 @@ import { MagneticButton } from '@/components/ui/magnetic-button';
 
 const FounderSection = () => {
   return (
-    <section className="relative px-6 py-24 overflow-hidden text-white bg-black min-w-screen">
+    <section className="relative px-6 py-24 overflow-hidden text-white bg-black founder-section min-w-screen">
       {/* Gradient glow background */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-blue-900/40 via-black to-transparent"></div>
 
       <div className="relative z-10 flex flex-col items-stretch max-w-6xl gap-12 mx-auto md:flex-row">
         {/* Image Section */}
         <div className="relative flex w-full md:w-1/2">
-          <img
-            src={"/founder.jpg"}
-            alt="Founder"
-            className="object-cover w-full h-full shadow-lg rounded-xl"
-          />
-          <div className="absolute bottom-3 left-3 bg-purple-700 text-white text-[20px] font-black px-3 py-1 rounded-sm">
+          <div className="animated-border-container">
+            <img
+              src={"/founder.jpg"}
+              alt="Founder"
+              className="object-cover w-full h-full shadow-lg animated-border-card rounded-xl"
+            />
+          </div>
+          <div className="absolute bottom-3 left-3 bg-purple-700 text-white text-[20px] font-black px-3 py-1 rounded-sm z-20">
             DAVID TAYLOR
           </div>
         </div>

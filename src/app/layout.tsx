@@ -33,7 +33,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`font-roboto antialiased bg-gradient-to-br from-[#07032d] to-[#0056f3] text-white`}
+        className={`font-roboto antialiased animated-gradient text-white`}
       >
         {children}
       </body>
