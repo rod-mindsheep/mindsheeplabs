@@ -7,12 +7,5 @@ module.exports = {
       },
     },
   },
-  safelist: [
-    'glitch',
-    'stars', 'stars2', 'stars3',
-    'animated-border-container',
-    'animated-border-card',
-    'node', 'node-glow', 'node-connector', 'orbit', 'node-pulse',
-  ],
   plugins: [],
 };
