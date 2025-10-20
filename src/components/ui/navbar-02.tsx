@@ -164,7 +164,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       <header
         ref={combinedRef}
         className={cn(
-          'pt-4 md:pt-10 sticky top-0 z-50 w-full md:px-10 px-6 [&_*]:no-underline',
+          'pt-4 md:pt-10 top-0 left-0 z-50 w-full md:px-10 px-6 [&_*]:no-underline transition-all duration-500',
           className
         )}
         {...props}
@@ -190,13 +190,10 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
           {/* Right side */}
           <div className="flex items-center justify-end gap-2 md:gap-6">
             <a
+              href="#aboutmindsheeplabs"
               // variant="ghost"
               // size="sm"
               className="text-sm hidden md:flex font-medium font-roboto text-[25px]"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onSignInClick) onSignInClick();
-              }}
             >
               {aboutText}
             </a>
@@ -228,39 +225,39 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                   </MagneticButton>
               </DialogTrigger>
 
-              <DialogContent className="p-6 mx-auto bg-white md:max-w-lg max-w-70vw rounded-xl">
-                <DialogHeader>
+              <DialogContent className="z-1000 w-[90vw] max-w-md sm:max-w-lg mx-auto bg-white rounded-xl p-6 shadow-lg">
+                <DialogHeader className="space-y-2 text-center">
                   <DialogTitle className="text-2xl font-bold text-black">
                     Join Mindsheep Labs
                   </DialogTitle>
-                  <DialogDescription className="text-gray-700">
+                  <DialogDescription className="text-sm leading-relaxed text-gray-700">
                     We collaborate with agencies ready to rewire how they create, automate,
                     and scale using AI. Tell us a bit about your goals so we can explore the
                     right fit.
                   </DialogDescription>
                 </DialogHeader>
 
-                <form className="flex flex-col gap-4 mt-4">
+                <form className="flex flex-col w-full gap-4 mt-5">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
                     required
                   />
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
                     required
                   />
                   <input
                     type="text"
                     placeholder="Your Agency / Company Name"
-                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
                   />
 
                   <select
-                    className="p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
                     required
                   >
                     <option value="">What do you want to explore?</option>
@@ -273,27 +270,28 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
 
                   <textarea
                     placeholder="Tell us what challenges or goals you’re exploring with AI..."
-                    className="p-3 text-black border border-gray-300 rounded-md h-28 resize-none focus:ring-2 focus:ring-[#D700F3] outline-none"
+                    className="w-full p-3 text-black border border-gray-300 rounded-md h-28 resize-none focus:ring-2 focus:ring-[#D700F3] outline-none transition"
                   ></textarea>
 
-                  <DialogFooter className="flex justify-end gap-3 mt-2">
+                  <DialogFooter className="flex flex-col-reverse justify-end gap-3 mt-4 sm:flex-row">
                     <DialogClose asChild>
                       <Button
                         variant="outline"
-                        className="px-5 py-2 text-black border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100"
+                        className="w-full px-6 py-2 text-black transition border border-gray-300 rounded-md cursor-pointer sm:w-auto hover:bg-gray-100"
                       >
                         Cancel
                       </Button>
                     </DialogClose>
                     <Button
                       type="submit"
-                      className="w-full px-6 py-2 text-white bg-gradient-to-r from-[#1A00D7] to-[#D700F3] rounded-md font-semibold cursor-pointer"
+                      className="w-full sm:w-auto px-6 py-2 text-white bg-gradient-to-r from-[#1A00D7] to-[#D700F3] rounded-md font-semibold cursor-pointer transition"
                     >
                       Submit
                     </Button>
                   </DialogFooter>
                 </form>
               </DialogContent>
+
             </Dialog>
             {/* Mobile menu trigger */}
             {isMobile && (

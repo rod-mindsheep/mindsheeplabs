@@ -3,7 +3,7 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const AboutSection = () => {
   return (
-    <section className="relative px-6 py-24 overflow-hidden text-white bg-black about-section min-w-screen">
+    <section id="aboutmindsheeplabs" className="relative px-6 py-24 overflow-hidden text-white bg-black about-section min-w-screen">
       {/* background gradient bottom glow */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none h-1/3 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
 
