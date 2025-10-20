@@ -5,7 +5,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button';
 const Footer = () => {
   return (
     <footer
-      className="footer-section bg-gradient-to-b from-black via-[#080818] to-[#0a0030] text-white py-20 px-6 min-w-screen"
+      className="footer-section bg-gradient-to-b from-black via-[#080818] to-[#0a0030] text-white py-20 px-1 md:px-6 min-w-screen"
     >
       {/* Main container */}
       <div className="flex flex-col items-center justify-between gap-12 pb-12 mx-auto border-b max-w-7xl md:flex-row border-gray-700/50">
@@ -29,7 +29,7 @@ const Footer = () => {
             />
             <MagneticButton
               type="submit"
-              className="flex items-center justify-items-center h-[46px] md:[43px] text-[20px] bg-gradient-to-r from-[#1A00D7] to-[#D700F3] transition-all text-white font-semibold px-5 py-3 rounded-sm whitespace-nowrap"
+              className="flex items-center justify-items-center h-[46px] md:h-[43px] text-[20px] bg-gradient-to-r from-[#1A00D7] to-[#D700F3] transition-all text-white font-semibold px-5 py-3 rounded-sm whitespace-nowrap"
             >
               TALK WITH US
             </MagneticButton>
