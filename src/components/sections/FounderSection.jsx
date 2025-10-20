@@ -36,7 +36,7 @@ const FounderSection = () => {
             mentoring other agencies on strategy and systems.
           </p>
 
-          <p className="text-white font-normal mb-8 text-[20px] leading-relaxed">
+          <p className="text-white font-normal mb-8 text-[13px] md:text-[20px] leading-relaxed">
             In 2024, David expanded into AI-powered business automation, helping agencies and
             in-house teams integrate AI into both creative services and operations. His blend
             of enterprise leadership and hands-on marketing expertise makes him the go-to
