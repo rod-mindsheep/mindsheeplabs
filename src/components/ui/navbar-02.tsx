@@ -225,7 +225,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                   </MagneticButton>
               </DialogTrigger>
 
-              <DialogContent className="z-1000 w-[90vw] max-w-md sm:max-w-lg mx-auto bg-white rounded-xl p-6 shadow-lg">
+              <DialogContent className="z-1010 w-[90vw] max-w-md sm:max-w-lg mx-auto bg-white rounded-xl p-6 shadow-lg">
                 <DialogHeader className="space-y-2 text-center">
                   <DialogTitle className="text-2xl font-bold text-black">
                     Join Mindsheep Labs
