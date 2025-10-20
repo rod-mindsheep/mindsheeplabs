@@ -294,20 +294,19 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
 
             </Dialog>
             {/* Mobile menu trigger */}
+            {/* Mobile menu trigger */}
             {isMobile && (
-              <Popover open={menuOpen} onOpenChange={setMenuOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    className="group h-[40px] w-[33px] md:hidden hover:bg-accent hover:text-accent-foreground z-[60] flex items-center justify-center"
-                    variant="ghost"
-                    size="icon"
+              <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
+                <DialogTrigger asChild>
+                  <button
+                    className="group h-[40px] w-[33px] md:hidden flex items-center justify-center"
                     onClick={() => setMenuOpen(!menuOpen)}
                   >
                     {menuOpen ? (
                       // “X” icon when menu is open
                       <svg
-                        width="33"
-                        height="33"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -319,25 +318,27 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                         <line x1="6" y1="6" x2="18" y2="18" />
                       </svg>
                     ) : (
-                      <HamburgerIcon className="h-[63px] w-[33px]" />
+                      <HamburgerIcon className="h-[24px] w-[24px]" />
                     )}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent
-                  align="start"
-                  className="z-[1000] w-screen h-screen top-0 left-0 border-none p-0 text-white justify-start bg-gradient-to-br from-[#011d53] to-[#070029]"
+                  </button>
+                </DialogTrigger>
+
+                <DialogContent
+                  className="fixed z-[1010] w-screen h-screen p-0 m-0 bg-gradient-to-br from-[#011d53] to-[#070029] text-white overflow-y-auto"
                 >
-                  {/* Optional close button */}
-                  <div className="absolute top-4 right-4">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-white"
+                  {/* Screen reader only title */}
+                  <DialogHeader className="sr-only">
+                    <DialogTitle>Navigate Mindsheep Labs</DialogTitle>
+                  </DialogHeader>
+                  {/* Close button */}
+                  {/* <div className="absolute top-4 right-4">
+                    <button
+                      className="p-2 text-white"
                       onClick={() => setMenuOpen(false)}
                     >
                       <svg
-                        width="33"
-                        height="33"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -348,57 +349,42 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                         <line x1="18" y1="6" x2="6" y2="18" />
                         <line x1="6" y1="6" x2="18" y2="18" />
                       </svg>
-                    </Button>
-                  </div>
-                  <NavigationMenu className="w-full mt-0">
-                    <NavigationMenuList className="flex-col items-start gap-0 text-left">
-                      {navigationLinks.map((link, index) => (
-                        <NavigationMenuItem key={index} className="w-full">
-                          {link.submenu ? (
-                            <>
-                              <div className="text-muted-foreground px-2 py-1.5 text-xs font-medium">
-                                {link.label}
-                              </div>
-                              <ul>
-                                {link.items?.map((item, itemIndex) => (
-                                  <li key={itemIndex}>
-                                    <button
-                                      onClick={(e) => e.preventDefault()}
-                                      className="flex items-center w-full px-3 py-2 text-sm font-medium no-underline transition-colors rounded-md cursor-pointer hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                    >
-                                      {item.label}
-                                    </button>
-                                  </li>
-                                ))}
-                              </ul>
-                            </>
-                          ) : (
-                            <button
-                              onClick={(e) => e.preventDefault()}
-                              className="flex items-center w-full px-3 py-2 text-sm font-medium no-underline transition-colors rounded-md cursor-pointer hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              {link.label}
-                            </button>
-                          )}
-                          {/* Add separator between different types of items */}
-                          {index < navigationLinks.length - 1 &&
-                            ((!link.submenu && navigationLinks[index + 1].submenu) ||
-                              (link.submenu && !navigationLinks[index + 1].submenu) ||
-                              (link.submenu &&
-                                navigationLinks[index + 1].submenu &&
-                                link.type !== navigationLinks[index + 1].type)) && (
-                              <div
-                                role="separator"
-                                aria-orientation="horizontal"
-                                className="w-full h-px my-1 -mx-1 bg-border"
-                              />
-                            )}
-                        </NavigationMenuItem>
-                      ))}
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                </PopoverContent>
-              </Popover>
+                    </button>
+                  </div> */}
+
+                  {/* Mobile nav items */}
+                  <nav className="flex flex-col items-start gap-4 px-6 mt-20">
+                    {navigationLinks.map((link, index) => (
+                      <div key={index} className="w-full">
+                        {link.submenu ? (
+                          <div>
+                            <div className="mb-1 text-sm font-medium text-muted-foreground">{link.label}</div>
+                            <ul className="flex flex-col gap-2">
+                              {link.items?.map((item, itemIndex) => (
+                                <li key={itemIndex}>
+                                  <a
+                                    href={item.href}
+                                    className="block w-full px-4 py-2 rounded-md hover:bg-white/10"
+                                  >
+                                    {item.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : (
+                          <a
+                            href={link.href}
+                            className="block w-full px-4 py-2 text-lg font-medium rounded-md hover:bg-white/10"
+                          >
+                            {link.label}
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </nav>
+                </DialogContent>
+              </Dialog>
             )}
           </div>
         </div>
