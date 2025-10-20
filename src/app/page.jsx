@@ -145,7 +145,7 @@ export default function Home() {
 
           <a href="">
             <MagneticButton
-              className="cursor-pointer font-roboto rounded-sm md:rounded-[15px] h-[28px] md:h-[57px] flex mx-auto justify-center items-center px-8 text-[15px] md:text-[30px] font-semibold md:font-bold uppercase py-5 bg-gradient-to-r from-[#1207D9] to-[#237FFE]"
+              className="z-1003 cursor-pointer font-roboto rounded-sm md:rounded-[15px] h-[28px] md:h-[57px] flex mx-auto justify-center items-center px-8 text-[15px] md:text-[30px] font-semibold md:font-bold uppercase py-5 bg-gradient-to-r from-[#1207D9] to-[#237FFE]"
             >
               Book an Exploratory Call
             </MagneticButton>
