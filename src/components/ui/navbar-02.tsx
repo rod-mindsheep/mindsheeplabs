@@ -90,8 +90,8 @@ export interface Navbar02Props extends React.HTMLAttributes<HTMLElement> {
 
 // Default navigation links
 const defaultNavigationLinks: Navbar02NavItem[] = [
-  { href: '#', label: 'Home' },
-  { href: '#', label: 'About Us' },
+  { href: '/', label: 'Home' },
+  { href: '#aboutmindsheeplabs', label: 'About Us' },
 ];
 
 // Navbar component
